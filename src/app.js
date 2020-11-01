@@ -20,7 +20,7 @@ app.get("/repositories", (request, response) => {
 
 app.post("/repositories", (request, response) => {
   let { title, url, techs } = request.body;
-  // techs = techs.split(", "); //transforma em array mas nao passa no teste
+  techs = techs.split(", "); //transforma em array mas nao passa no teste
   const repository = {
     id: uuid(),
     title,
@@ -37,7 +37,7 @@ app.post("/repositories", (request, response) => {
 app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
   let { title, url, techs } = request.body;
-  // techs = techs.split(", ");//transforma em array mas nao passa no teste
+  techs = techs.split(", ");//transforma em array mas nao passa no teste
 
   const repositoryIndex = repositories.findIndex((r) => r.id === id);
   if (repositoryIndex < 0) {
